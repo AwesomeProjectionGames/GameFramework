@@ -16,6 +16,12 @@ namespace GameFramework
         /// Gets the spectate controller currently observing this object.
         /// </summary>
         ISpectateController? SpectateController { get; set; }
+        
+        /// <summary>
+        /// Optionally gets the camera to use when spectating this object.
+        /// </summary>
+        /// <returns>>The spectate camera, or null if the default camera should be used.</returns>
+        ICamera? GetSpectateCamera();
 
         /// <summary>
         /// Starts spectating this object using the given controller,
