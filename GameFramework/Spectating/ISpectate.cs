@@ -18,10 +18,11 @@ namespace GameFramework
         ISpectateController? SpectateController { get; set; }
         
         /// <summary>
-        /// Optionally gets the camera to use when spectating this object.
+        /// Get the camera to use when spectating this object.
+        /// If you need multiples modes of spectating the same actor, maybe you should consider creating another ISpectate instead, with differents controls, etc.
         /// </summary>
-        /// <returns>>The spectate camera, or null if the default camera should be used.</returns>
-        ICamera? GetSpectateCamera();
+        /// <returns>The spectate camera we should enable when start spectating</returns>
+        ICamera GetSpectateCamera();
 
         /// <summary>
         /// Starts spectating this object using the given controller,
