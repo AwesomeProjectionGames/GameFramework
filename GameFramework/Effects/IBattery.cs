@@ -12,7 +12,7 @@ namespace GameFramework.Effects
         /// <summary>
         /// Maximum battery capacity.
         /// </summary>
-        float MaxCapacity { get; }
+        float MaxCapacity { get; set; }
 
         /// <summary>
         /// Current battery charge.
