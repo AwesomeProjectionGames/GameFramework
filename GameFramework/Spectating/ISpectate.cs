@@ -44,13 +44,14 @@ namespace GameFramework
             SpectateController = controller;
 
             IsSpectating = true;
-            OnStartSpectating();
+            OnStartSpectating(controller);
         }
 
         /// <summary>
         /// Called when spectating begins. Implement custom behavior here.
         /// </summary>
-        void OnStartSpectating();
+        /// <param name="controller">The spectate controller to use for spectating.</param>
+        void OnStartSpectating(ISpectateController controller);
 
         /// <summary>
         /// Stops spectating this object,
