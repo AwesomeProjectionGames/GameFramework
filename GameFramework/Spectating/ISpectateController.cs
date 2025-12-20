@@ -8,7 +8,7 @@ namespace GameFramework
     /// And there is generally only one spectate controller if cameras and informations spectated are for one complete screen.
     /// There could be multiple spectate controllers if we are in split screen mode or if we want to spectate different things on different screens at once.
     /// </summary>
-    public interface ISpectateController
+    public interface ISpectateController : ICameraController
     {
         /// <summary>
         /// Get the current spectate object that is being spectated by this controller.

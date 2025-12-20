@@ -26,8 +26,8 @@ namespace GameFramework
         IController? IActor.Controller => this;
         
         /// <summary>
-        /// Get a spectate controller for managing spectating behavior.
-        /// Generally, this will be the POVController for every player controller (if split screen) or the full screen POVController.
+        /// Get a spectate controller for managing spectating behavior (UIs, cameras, etc).
+        /// Generally, this will be the SpectateController for every player controller (if split screen) or a full screen SpectateController.
         /// </summary>
         ISpectateController? SpectateController { get; }
 
