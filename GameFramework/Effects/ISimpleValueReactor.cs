@@ -1,4 +1,6 @@
-﻿namespace GameFramework.Effects
+﻿#nullable enable
+
+namespace GameFramework.Effects
 {
     /// <summary>
     /// Usefull for objects that react to simple value changes (like health, stamina, etc).
@@ -6,13 +8,21 @@
     public interface ISimpleValueReactor<T>
     {
         /// <summary>
-        /// Because you can have multiple ISimpleValueReactor<float>, this is a channel identifier to distinguish the value that they should react to.
+        /// The source of the simple value to observe.
         /// </summary>
-        public string ReactorChannel { get; }
+        public IExposeSimpleValue<T>? ObservedSource { get; set; }
+        
         /// <summary>
-        /// Called when the value changes.
+        /// Called when the observed source changes.
+        /// </summary>
+        /// <param name="oldSource">The previous source.</param>
+        /// <param name="newSource">The new source.</param>
+        protected void OnObservedSourceChanged(IExposeSimpleValue<T>? oldSource, IExposeSimpleValue<T>? newSource);
+        
+        /// <summary>
+        /// Called when the observed value changes.
         /// </summary>
         /// <param name="newValue">The new value.</param>
-        public void OnValueChanged(T newValue);
+        protected void OnObservedValueChanged(T newValue);
     }
 }
