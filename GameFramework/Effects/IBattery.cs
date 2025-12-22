@@ -26,9 +26,19 @@ namespace GameFramework.Effects
         float ChargeRatePerSecond { get; set; }
 
         /// <summary>
-        /// True if the battery is currently charging (ChargeRatePerSecond > 0).
+        /// True if the battery is currently charging (ChargeRatePerSecond > 0 and not full).
         /// </summary>
         bool IsCharging { get; }
+        
+        /// <summary>
+        /// True if the battery current charge is equal to max capacity.
+        /// </summary>
+        bool IsFull { get; }
+        
+        /// <summary>
+        /// True if the battery current charge is zero.
+        /// </summary>
+        bool IsEmpty { get; }
 
         /// <summary>
         /// Normalized charge value between 0 and 1.
