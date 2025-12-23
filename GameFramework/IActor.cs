@@ -1,12 +1,14 @@
 ﻿#nullable enable
 
 using System;
+using GameFramework.Bus;
+using GameFramework.Identification;
 using UnityEngine;
 
 namespace GameFramework
 {
     /// <summary>
-    /// Actor is the base class for an Object that has significant presence in the game world / has some functionality.
+    /// Actor is the base class for an Object that has significant presence in the game world / has some functionality (like an entity).
     /// It can be possessed by any other actor, like a player or an AI.
     /// </summary>
     public interface IActor : IHaveUUID
@@ -22,6 +24,12 @@ namespace GameFramework
         /// The controller currently possessing this pawn. Null if unpossessed.
         /// </summary>
         public IActor? Owner { get; }
+        
+        /// <summary>
+        /// The event bus associated with this entity. Like a Event Dispatcher owned by an Actor in unreal terminology.
+        /// It should be used to dispatch events related to this entity only and should follow the same lifetime as the entity itself.
+        /// </summary>
+        public IEventBus EventDispatcher { get; }
         
         /// <summary>
         /// Fired when the owner of this (or a parent Actor of this) changes.
