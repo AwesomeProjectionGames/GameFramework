@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameFramework
 {
     /// <summary>
-    /// Pawn is the base class of all actors that can be possessed by players or AI.
+    /// Pawn is the base class of all actors that can be moved around the world by players or AI.
     /// </summary>
     public interface IPawn : IActor
     {
