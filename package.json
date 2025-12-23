@@ -2,7 +2,7 @@
   "name": "com.awesomeprojection.gameframework",
   "displayName": "Game Framework",
   "description": "A collection of C# interfaces only, to uniformize games structure. Inspired by Unreal Game Framework (Pawn, Actors, Controllers).",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "unity": "2021.3",
   "author": {
     "name": "Eliott Jaquier",
