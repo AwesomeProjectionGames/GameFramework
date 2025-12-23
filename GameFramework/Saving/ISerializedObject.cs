@@ -1,4 +1,6 @@
-﻿namespace GameFramework.Saving
+﻿using GameFramework.Identification;
+
+namespace GameFramework.Saving
 {
     /// <summary>
     /// An interface representing an object that can be serialized and deserialized.

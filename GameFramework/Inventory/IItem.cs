@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using System.Collections.Generic;
+using GameFramework.Identification;
 using UnityEngine;
 
 namespace GameFramework.Inventory
