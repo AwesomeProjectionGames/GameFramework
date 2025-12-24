@@ -16,6 +16,11 @@ namespace GameFramework
         IMachine Machine { get; }
         
         /// <summary>
+        /// Gets the display name of this controller / the name of the 'AI' or the real person controlling it.
+        /// </summary>
+        string Name { get; }
+        
+        /// <summary>
         /// Gets or sets the pawn currently controlled by this controller.
         /// </summary>
         IPawn? ControlledPawn { get; set; }
