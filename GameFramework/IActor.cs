@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using System;
+using System.Collections.Generic;
 using GameFramework.Bus;
 using GameFramework.GameFramework;
 using GameFramework.Identification;
@@ -55,7 +56,7 @@ namespace GameFramework
         /// </summary>
         /// <typeparam name="T">A type that implements IActorComponent</typeparam>
         /// <returns>>Return all components of type T if they exist, otherwise an empty array.</returns>
-        public T[] GetActorComponents<T>() where T : IActorComponent;
+        public IReadOnlyList<T> GetActorComponents<T>() where T : IActorComponent;
 
         /// <summary>
         /// Called when the actor is owned by an other actor.
