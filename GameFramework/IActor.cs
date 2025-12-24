@@ -52,6 +52,14 @@ namespace GameFramework
         public T? GetActorComponent<T>() where T : IActorComponent;
         
         /// <summary>
+        /// Find a component of the specified type attached to this actor.
+        /// The class implementing this interface should cache the components in a map of type to component list for performance, so you can expect O(1) complexity on this call.
+        /// </summary>
+        /// <param name="componentType">A type that implements IActorComponent</param>
+        /// <returns>Return the first component of the specified type if it exists, otherwise null.</returns>
+        public object? GetActorComponent(Type componentType);
+        
+        /// <summary>
         /// Find all components of type T attached to this actor.
         /// </summary>
         /// <typeparam name="T">A type that implements IActorComponent</typeparam>
