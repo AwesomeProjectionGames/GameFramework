@@ -2,6 +2,7 @@
 
 using System;
 using GameFramework.Bus;
+using GameFramework.GameFramework;
 using GameFramework.Identification;
 using UnityEngine;
 
@@ -40,6 +41,21 @@ namespace GameFramework
         /// Fired when the owner of this actor changes.
         /// </summary>
         public event Action OnOwnerChanged;
+        
+        /// <summary>
+        /// Find a component of type T attached to this actor.
+        /// The class implementing this interface should cache the components in a map of type to component list for performance, so you can expect O(1) complexity on this call.
+        /// </summary>
+        /// <typeparam name="T">A type that implements IActorComponent</typeparam>
+        /// <returns>Return the first component of type T if it exists, otherwise null.</returns>
+        public T? GetActorComponent<T>() where T : IActorComponent;
+        
+        /// <summary>
+        /// Find all components of type T attached to this actor.
+        /// </summary>
+        /// <typeparam name="T">A type that implements IActorComponent</typeparam>
+        /// <returns>>Return all components of type T if they exist, otherwise an empty array.</returns>
+        public T[] GetActorComponents<T>() where T : IActorComponent;
 
         /// <summary>
         /// Called when the actor is owned by an other actor.

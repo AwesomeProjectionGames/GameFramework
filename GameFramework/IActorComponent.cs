@@ -6,6 +6,9 @@
     /// </summary>
     public interface IActorComponent
     {
-        IActor GetActor();
+        /// <summary>
+        /// The actor that owns this component.
+        /// </summary>
+        IActor Actor { get; set ; }
     }
 }
