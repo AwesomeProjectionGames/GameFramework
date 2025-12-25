@@ -1,4 +1,4 @@
-﻿namespace GameFramework.GameFramework
+﻿namespace GameFramework.Dependencies
 {
     /// <summary>
     /// Components that add reusable behavior to an IActor should implement this interface.

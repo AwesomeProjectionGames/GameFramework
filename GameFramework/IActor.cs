@@ -1,9 +1,8 @@
 ﻿#nullable enable
 
 using System;
-using System.Collections.Generic;
 using GameFramework.Bus;
-using GameFramework.GameFramework;
+using GameFramework.Dependencies;
 using GameFramework.Identification;
 using UnityEngine;
 
@@ -34,6 +33,11 @@ namespace GameFramework
         public IEventBus EventDispatcher { get; }
         
         /// <summary>
+        /// The components container for this actor.
+        /// </summary>
+        public IComponentsContainer ComponentsContainer { get; }
+        
+        /// <summary>
         /// Fired when the owner of this (or a parent Actor of this) changes.
         /// </summary>
         public event Action OnAnyOwnerChanged;
@@ -42,29 +46,6 @@ namespace GameFramework
         /// Fired when the owner of this actor changes.
         /// </summary>
         public event Action OnOwnerChanged;
-        
-        /// <summary>
-        /// Find a component of type T attached to this actor.
-        /// The class implementing this interface should cache the components in a map of type to component list for performance, so you can expect O(1) complexity on this call.
-        /// </summary>
-        /// <typeparam name="T">A type that implements IActorComponent</typeparam>
-        /// <returns>Return the first component of type T if it exists, otherwise null.</returns>
-        public T? GetActorComponent<T>() where T : IActorComponent;
-        
-        /// <summary>
-        /// Find a component of the specified type attached to this actor.
-        /// The class implementing this interface should cache the components in a map of type to component list for performance, so you can expect O(1) complexity on this call.
-        /// </summary>
-        /// <param name="componentType">A type that implements IActorComponent</param>
-        /// <returns>Return the first component of the specified type if it exists, otherwise null.</returns>
-        public object? GetActorComponent(Type componentType);
-        
-        /// <summary>
-        /// Find all components of type T attached to this actor.
-        /// </summary>
-        /// <typeparam name="T">A type that implements IActorComponent</typeparam>
-        /// <returns>>Return all components of type T if they exist, otherwise an empty array.</returns>
-        public IReadOnlyList<T> GetActorComponents<T>() where T : IActorComponent;
 
         /// <summary>
         /// Called when the actor is owned by an other actor.
