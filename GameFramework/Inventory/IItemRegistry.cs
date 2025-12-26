@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameFramework.Identification;
 
 namespace GameFramework.Inventory
 {
@@ -8,7 +9,7 @@ namespace GameFramework.Inventory
     /// Each instance of one prefab will have the same identifier.
     /// Don't confuse with UUID, which is unique for each instance.
     /// </summary>
-    public interface IItemRegistry : IEnumerable<IItem>
+    public interface IItemRegistry : IEnumerable<IItem>, IIDRegistry
     {
         IItem this[string id] { get; }
 
