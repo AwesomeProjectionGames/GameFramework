@@ -1,4 +1,6 @@
-﻿namespace GameFramework.Identification
+﻿using System;
+
+namespace GameFramework.Identification
 {
     /// <summary>
     /// Identifies an object with a unique UUID (Universally Unique Identifier).
@@ -8,7 +10,7 @@
     /// It also SHOULD BE PERSISTENT between game sessions, to identify the same object when LOADING a saved game.
     /// Every object implementing this interface should be retreivable by its UUID through a central registry (like a GameState or any IIDDatabase).
     /// </summary>
-    public interface IHaveUUID
+    public interface IHaveUUID : IEquatable<IHaveUUID>
     {
         public string UUID { get; }
         

@@ -1,4 +1,4 @@
-﻿namespace GameFramework.Effects
+﻿namespace GameFramework
 {
     /// <summary>
     /// An interface for objects that require regular updates or "ticks".

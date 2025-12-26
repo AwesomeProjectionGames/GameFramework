@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameFramework.Effects
+﻿namespace GameFramework
 {
     /// <summary>
     /// Represents a time-based battery system with support for
