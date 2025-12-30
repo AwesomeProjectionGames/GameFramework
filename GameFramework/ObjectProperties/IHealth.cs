@@ -9,7 +9,9 @@ namespace GameFramework
     public interface IHealth
     {
         /// <summary>
-        /// Gets or sets the current health value of the entity.
+        /// Gets the current health value of the entity.
+        /// Current health should never exceed <see cref="MaxHealth"/> and should not be less than zero.
+        /// It can be either a representation of a health amount or a number of lives, depending on the game design.
         /// </summary>
         int CurrentHealth { get; }
         
