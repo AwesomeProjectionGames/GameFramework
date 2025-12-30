@@ -14,6 +14,11 @@ namespace GameFramework
         int CurrentHealth { get; }
         
         /// <summary>
+        /// Gets the maximum health value of the entity.
+        /// </summary>
+        int MaxHealth { get; }
+        
+        /// <summary>
         /// Gets the health percentage of the entity, calculated as a float between 0 and 1.
         /// </summary>
         float HealthPercentage { get; }
@@ -25,9 +30,11 @@ namespace GameFramework
         public bool IsAlive { get; }
 
         /// <summary>
-        /// Forces the entity's health to zero, effectively killing it.
+        /// Apply instant death type of damage to the entity.
+        /// It CAN be forcing the entity's health to zero (in the case of CurrentHealth represent a health amount and not a number of lives),
+        /// OR it can be removing one life from a pool of lives.
         /// </summary>
-        /// <param name="damageType">An integer identifier for the type of damage (e.g. fire, fall, poison).</param>
+        /// <param name="damageType">An integer identifier for the type of damage (e.g. fire, fall, poison). Should be enumerated elsewhere.</param>
         /// <param name="damageCauser">The actor responsible for causing the damage.</param>
         /// <param name="instigator">The controller that initiated the action, if applicable.</param>
         void Kill(int damageType, IActor damageCauser, IController? instigator = null);
@@ -41,10 +48,13 @@ namespace GameFramework
 
         /// <summary>
         /// Removes health from the entity by the specified amount.
+        /// Note that instead of directly reducing health, you should favor using damage systems like IDamageable for more coherent experience.
+        /// IDamageable should then try to call this method to apply the damage.
         /// </summary>
+        /// <param name="damageType">An integer identifier for the type of damage (e.g. fire, fall, poison). Should be enumerated elsewhere.</param>
         /// <param name="amount">The amount of health to remove.</param>
         /// <param name="damageCauser">The actor responsible for causing the damage.</param>
         /// <param name="instigator">The controller that initiated the damage, if applicable.</param>
-        void RemoveHealth(int amount, IActor damageCauser, IController? instigator = null);
+        void RemoveHealth(int damageType, int amount, IActor damageCauser, IController? instigator = null);
     }
 }

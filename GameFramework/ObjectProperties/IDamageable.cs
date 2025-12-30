@@ -13,28 +13,28 @@ namespace GameFramework
         /// Applies point damage to the object at a specific hit location.
         /// </summary>
         /// <param name="damage">Amount of damage to apply.</param>
-        /// <param name="damageType">Type of damage being applied.</param>
+        /// <param name="damageType">Type of damage being applied. Should be an enum value cast to int.</param>
         /// <param name="hitLocation">World-space location where the hit occurred.</param>
         /// <param name="hitNormal">Normal vector at the hit location.</param>
         /// <param name="shotFromDirection">Direction the shot came from.</param>
         /// <param name="speed">Speed of the damaging projectile or effect.</param>
         /// <param name="damageCauser">Actor responsible for causing the damage.</param>
         /// <param name="instigator">Optional pawn that initiated the damage (e.g. a player).</param>
-        void ReceivePointDamage(float damage, int damageType, Vector3 hitLocation, Vector3 hitNormal, Vector3 shotFromDirection,
+        void ReceivePointDamage(int damage, int damageType, Vector3 hitLocation, Vector3 hitNormal, Vector3 shotFromDirection,
             float speed, IActor damageCauser, IPawn? instigator = null);
 
         /// <summary>
         /// Applies radial damage to the object based on its distance from the origin.
         /// </summary>
         /// <param name="damage">Maximum damage at the center of the effect.</param>
-        /// <param name="damageType">Type of damage being applied.</param>
+        /// <param name="damageType">Type of damage being applied. Should be an enum value cast to int.</param>
         /// <param name="origin">Center of the damage radius.</param>
         /// <param name="minimumDamageDistance">Distance within which full damage is applied.</param>
         /// <param name="maximumDamageDistance">Distance beyond which no damage is applied.</param>
         /// <param name="speed">Speed of the damaging effect.</param>
         /// <param name="damageCauser">Actor responsible for causing the damage.</param>
         /// <param name="instigator">Optional pawn that initiated the damage.</param>
-        void ReceiveRadialDamage(float damage, int damageType, Vector3 origin, float minimumDamageDistance, float maximumDamageDistance,
+        void ReceiveRadialDamage(int damage, int damageType, Vector3 origin, float minimumDamageDistance, float maximumDamageDistance,
             float speed, IActor damageCauser, IPawn? instigator = null);
     }
 }
