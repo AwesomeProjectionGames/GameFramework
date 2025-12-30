@@ -1,5 +1,7 @@
 ﻿#nullable enable
 
+using System;
+
 namespace GameFramework
 {
     /// <summary>
@@ -19,6 +21,11 @@ namespace GameFramework
         /// Gets the maximum health value of the entity.
         /// </summary>
         int MaxHealth { get; }
+        
+        /// <summary>
+        /// Invoked when the player's current health has changed, Given the health and DELTA.
+        /// </summary>
+        event Action<IHealth, int> OnCurrentHealthChanged;
         
         /// <summary>
         /// Gets the health percentage of the entity, calculated as a float between 0 and 1.
