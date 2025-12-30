@@ -18,10 +18,10 @@ namespace GameFramework
         /// <param name="hitNormal">Normal vector at the hit location.</param>
         /// <param name="shotFromDirection">Direction the shot came from.</param>
         /// <param name="speed">Speed of the damaging projectile or effect.</param>
-        /// <param name="damageCauser">Actor responsible for causing the damage.</param>
+        /// <param name="damageCauser">Actor responsible for causing the damage. Can be anonymous if it wasn't an actor that caused it (only if it's the world / object with no importance).</param>
         /// <param name="instigator">Optional pawn that initiated the damage (e.g. a player).</param>
         void ReceivePointDamage(int damage, int damageType, Vector3 hitLocation, Vector3 hitNormal, Vector3 shotFromDirection,
-            float speed, IActor damageCauser, IPawn? instigator = null);
+            float speed, IActor? damageCauser = null, IPawn? instigator = null);
 
         /// <summary>
         /// Applies radial damage to the object based on its distance from the origin.
@@ -32,9 +32,9 @@ namespace GameFramework
         /// <param name="minimumDamageDistance">Distance within which full damage is applied.</param>
         /// <param name="maximumDamageDistance">Distance beyond which no damage is applied.</param>
         /// <param name="speed">Speed of the damaging effect.</param>
-        /// <param name="damageCauser">Actor responsible for causing the damage.</param>
+        /// <param name="damageCauser">Actor responsible for causing the damage. Can be anonymous if it wasn't an actor that caused it (only if it's the world / object with no importance).</param>
         /// <param name="instigator">Optional pawn that initiated the damage.</param>
         void ReceiveRadialDamage(int damage, int damageType, Vector3 origin, float minimumDamageDistance, float maximumDamageDistance,
-            float speed, IActor damageCauser, IPawn? instigator = null);
+            float speed, IActor? damageCauser = null, IPawn? instigator = null);
     }
 }

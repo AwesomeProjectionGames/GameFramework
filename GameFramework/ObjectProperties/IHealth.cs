@@ -44,9 +44,9 @@ namespace GameFramework
         /// OR it can be removing one life from a pool of lives.
         /// </summary>
         /// <param name="damageType">An integer identifier for the type of damage (e.g. fire, fall, poison). Should be enumerated elsewhere.</param>
-        /// <param name="damageCauser">The actor responsible for causing the damage.</param>
+        /// <param name="damageCauser">The actor responsible for causing the damage. Can be anonymous if it wasn't an actor that caused it (only if it's the world / object with no importance).</param>
         /// <param name="instigator">The controller that initiated the action, if applicable.</param>
-        void Kill(int damageType, IActor damageCauser, IController? instigator = null);
+        void Kill(int damageType, IActor? damageCauser = null, IController? instigator = null);
 
         /// <summary>
         /// Increases the entity's health by the specified amount.
@@ -67,8 +67,8 @@ namespace GameFramework
         /// </summary>
         /// <param name="damageType">An integer identifier for the type of damage (e.g. fire, fall, poison). Should be enumerated elsewhere.</param>
         /// <param name="amount">The amount of health to remove.</param>
-        /// <param name="damageCauser">The actor responsible for causing the damage.</param>
+        /// <param name="damageCauser">The actor responsible for causing the damage. Can be anonymous if it wasn't an actor that caused it (only if it's the world / object with no importance).</param>
         /// <param name="instigator">The controller that initiated the damage, if applicable.</param>
-        void RemoveHealth(int damageType, int amount, IActor damageCauser, IController? instigator = null);
+        void RemoveHealth(int damageType, int amount, IActor? damageCauser = null, IController? instigator = null);
     }
 }
