@@ -47,6 +47,11 @@ namespace GameFramework
         /// <param name="amount">The amount of health to restore.</param>
         /// <param name="healer">The actor responsible for healing</param>
         void Heal(int amount, IActor healer, IController? instigator = null);
+        
+        /// <summary>
+        /// Reset the current health to the default state (generally the maximum health value)
+        /// </summary>
+        void ResetCurrentHealth();
 
         /// <summary>
         /// Removes health from the entity by the specified amount.
