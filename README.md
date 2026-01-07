@@ -5,26 +5,33 @@ Designed for building scalable and maintainable Unity games, it provides a robus
 
 ## Core Architecture
 
-The framework is built around a system of possession and ownership, separating logic (Controllers) from physical representation (Pawns).
+The framework differentiates logical control (`IController`), physical presence (`IPawn`), and game rules (`IGameMode`).
 
 ### Actors & Possession
-- **`IActor`**: The base interface for any object with a significant presence in the game world. Supports ownership hierarchy (`Owner`).
-- **`IPawn`**: An `IActor` that can be possessed by a controller. It represents the physical avatar in the world.
-- **`IController`**: A non-physical entity that acts as the "brain". It possesses an `IPawn` to direct its actions. This separation allows for easy swapping of control logic (e.g., Player vs AI) or switching bodies (e.g., entering a vehicle).
-- **`IMachine`**: Represents a physical instance of the game application (client or server), identified by a unique definition. *This should be the only thing allowed to be a singleton.*
-- **`ISpectateController`**: A controller that can spectate a `ISpectate`, generally implemented in pawns. It represent a game view. Generally, there will be only one instance for full screen game, but they can be many for split-screen. This is why there is a strong link with `IController`.
+- **`IActor`**: A significant world object with ownership hierarchy. Should not be considered as a GameObject. For example, a pressure plate will have an `IActor` on the root gameobject but not on the children gameobjects used for rendering and collision.
+- **`IPawn`**: Physical avatar possessed by a controller. Generally movable.
+- **`ICharacter`**: Specialized `IPawn` with movement capabilities.
+- **`IController`**: "Brain" that possesses a Pawn (AI or Player).
+- **`ISpectateController`**: Controller dedicated to viewing `ISpectate` targets for game views.
+- **`IMachine`**: The physical application instance (Client/Server).
+- **`IGameInstance`**: Persistent cross-scene data and lifecycle management. Only singleton you should need, because it has `IComponentsContainer` to add global services and `IEventBus` for global events.
 
 ### Game Flow
-- **`IGameMode`**: Defines the rules of the match, including default pawns, controllers, and spawn logic.
-- **`IGameState`**: Tracks the global state of the game, such as the list of active actors, players, and scores.
+- **`IGameMode`**: Match rules, scoring, and spawning logic. Generally one per scene.
+- **`IGameState`**: Replicated global game state (teams, scores).
+- **`ISpawnPoint`**: Validated location and rotation for spawning actors. Can have physics checks to ensure validity.
 
 ## Systems
 
-The framework includes essential systems to handle common game mechanics:
-- **Health & Damage**: Manages health states, healing, death, and various types of damage (point, radial).
-- **Interaction**: A unified system for actors to interact with world objects.
-- **Inventory**: Flexible management for items and collections.
-- **Persistence**: Interfaces for saving, loading, and serializing object states.
+- **Dependencies**: `IComponentsContainer` acts as a highly optimized service locator for `IActorComponent` to build modular actors.
+- **Identity**: `IHaveUUID` provides unique, persistent, network-synced identity. `IIDRegistry` allows O(1) lookups.
+- **Reactive**: `IValueObservable<T>` exposes reactive data streams. `IEventBus` handles decoupled local/global pub/sub events.
+- **Health**: `IHealth` manages vitality and death; `IDamageable` handles damage/healing logic; `IBattery` for energy mechanics.
+- **Interaction**: `IInteractable` (target) and `IInteractor` (source) standard interactions. `IRaycastable` for pointer/cursor detection.
+- **Inventory**: `IInventory` manages `IItemActor` and `IItemStack` collections. Supports `ISelectableInventory`/`IInventoryOrderableList`.
+- **Spectating**: `ISpectate` defines view targets; `ICamera` and `ICameraController` handle view rendering logic.
+- **Traits**: `IDroppable`, `IThrowable`.
+- **Persistence**: `ISerializedObject` for saving/loading state.
 
 
 ## Installation
