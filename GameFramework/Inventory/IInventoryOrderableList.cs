@@ -12,7 +12,7 @@
         /// <param name="index"></param>
         /// <param name="removeExistingItem"></param>
         /// <returns></returns>
-        bool TryToAddItemAt(IItem item, int index, bool removeExistingItem);
+        bool TryToAddItemAt(IItemActor item, int index, bool removeExistingItem);
         
         /// <summary>
         /// Try to swap two items in the list

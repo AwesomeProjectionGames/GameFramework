@@ -3,32 +3,33 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameFramework.Dependencies;
 
 namespace GameFramework.Inventory
 {
     /// <summary>
     /// Define common methods for all inventories
     /// </summary>
-    public interface IInventory
+    public interface IInventory : IActorComponent
     {
         /// <summary>
         /// All items of this inventory. 2D inventories are just a rendering feature over this list.
         /// Note that some entries may be null if the inventory is not full and use an array / orderable mechanism.
         /// </summary>
-        IEnumerable<IItem?> Items { get; }
+        IEnumerable<IItemActor?> Items { get; }
         
         /// <summary>
         /// All non-null items of this inventory.
         /// This is a convenience method to avoid null checks.
         /// Note that, in orderable inventories, this will not change the order of items but remove holes so you cannot base your logic on the index of items.
         /// </summary>
-        IEnumerable<IItem> NonNullItems => Items.Where(item => item != null)!;
+        IEnumerable<IItemActor> NonNullItems => Items.Where(item => item != null)!;
         
         /// <summary>
         /// Get an item at a specific index.
         /// </summary>
         /// <param name="index">The index of the item to get</param>
-        IItem this[int index] { get; }
+        IItemActor this[int index] { get; }
         
         /// <summary>
         /// The current number of items in the inventory.
@@ -45,36 +46,36 @@ namespace GameFramework.Inventory
         /// </summary>
         /// <param name="item">The item to add</param>
         /// <returns>True only if item was added</returns>
-        bool TryToAddItem(IItem item);
+        bool TryToAddItem(IItemActor item);
         
         /// <summary>
         /// Try to remove an item from the list (first match based on item info hash)
         /// </summary>
         /// <param name="item">The item to find and remove</param>
         /// <returns>True only if item was removed (false if not found)</returns>
-        bool TryToRemoveItem(IItem item);
+        bool TryToRemoveItem(IItemActor item);
         
         /// <summary>
         /// After an item was added, invoke this with the added item. Note : An item swap will result in 2 * (item removed + item added)
         /// This is the index of the item in the inventory.
         /// </summary>
-        event Action<IItem, int> OnItemAdded;
+        event Action<IItemActor, int> OnItemAdded;
         
         /// <summary>
         /// After an item was deleted, invoke this with the delete item. Note : An item swap will result in 2 * (item removed + item added)
         /// This is the index of the item in the inventory.
         /// </summary>
-        event Action<IItem, int> OnItemRemoved;
+        event Action<IItemActor, int> OnItemRemoved;
         
         /// <summary>
         /// Before an item is added, invoke this with the item. The index is the index of the item in the inventory.
         /// </summary>
-        event Action<IItem, int>? OnItemWillBeAdded;
+        event Action<IItemActor, int>? OnItemWillBeAdded;
         
         /// <summary>
         /// Before an item is removed, invoke this with the item. The index is the index of the item in the inventory.
         /// </summary>
-        event Action<IItem, int>? OnItemWillBeRemoved;
+        event Action<IItemActor, int>? OnItemWillBeRemoved;
         
         /// <summary>
         /// Try to remove an item from the list (at slot index)

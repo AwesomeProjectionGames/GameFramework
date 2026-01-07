@@ -9,16 +9,16 @@ namespace GameFramework.Inventory
     /// Each instance of one prefab will have the same identifier.
     /// Don't confuse with UUID, which is unique for each instance.
     /// </summary>
-    public interface IItemRegistry : IEnumerable<IItem>, IIDRegistry
+    public interface IItemRegistry : IEnumerable<IItemActor>, IIDRegistry
     {
-        IItem this[string id] { get; }
+        IItemActor this[string id] { get; }
 
-        IEnumerable<IItem> AllItems { get; }
+        IEnumerable<IItemActor> AllItems { get; }
 
-        IItem GetItemOfId(string id);
+        IItemActor GetItemOfId(string id);
 
-        bool TryGetItemOfId(string id, out IItem item);
+        bool TryGetItemOfId(string id, out IItemActor item);
 
-        bool RegisterItem(string id, IItem item);
+        bool RegisterItem(string id, IItemActor item);
     }
 }

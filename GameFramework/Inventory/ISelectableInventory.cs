@@ -17,10 +17,8 @@ namespace GameFramework.Inventory
         /// Note that setting this index will (MUST in implementations) use a modulo operation to ensure it is within the bounds of the inventory.
         /// </summary>
         int SelectedIndex { get; set; }
-        IItem? SelectedItem { get; }
-        event Action<IItem?> OnSelectedItemChanged;
-        Transform SelectedAnchorTransform { get; }
-        Transform DefaultAnchorTransform { get; }
+        IItemActor? SelectedItem { get; }
+        event Action<IItemActor?> OnSelectedItemChanged;
         
         /// <summary>
         /// The owner of this inventory.

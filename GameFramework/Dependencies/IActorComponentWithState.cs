@@ -1,25 +1,13 @@
 ﻿using System;
+using GameFramework.Dependencies;
 
-namespace GameFramework.Inventory
+namespace GameFramework.Dependencies
 {
     /// <summary>
     /// A feature is a special behavior for items or a category that permit filtering
     /// </summary>
-    public interface IItemFeature
+    public interface IActorComponentWithState : IActorComponent, ISerializedObject
     {
-        /// <summary>
-        /// Serialized state (preferably in JSON format) of the feature.
-        /// </summary>
-        string SerializedState { get; }
-        
-        string LocalizedName { get; }
-        
-        /// <summary>
-        /// Apply the state to the feature.
-        /// </summary>
-        /// <param name="serializedState">The serialized state to apply.</param>
-        void ApplyState(string serializedState);
-        
         /// <summary>
         /// When the state of the feature changes, this method should be called to notify listeners.
         /// </summary>

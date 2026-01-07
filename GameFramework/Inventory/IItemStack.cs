@@ -2,7 +2,10 @@
 {
     public interface IItemStack
     {
-        IItem ItemModel { get; }
+        /// <summary>
+        /// The item model should point to a replicable instance (something that we can Instanciate or Clone)
+        /// </summary>
+        IItemActor ItemModel { get; }
         int CurrentCount { get; }
         int MaxCount { get; }
         

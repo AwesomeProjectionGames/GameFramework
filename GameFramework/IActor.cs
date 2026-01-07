@@ -11,8 +11,9 @@ namespace GameFramework
     /// <summary>
     /// Actor is the base class for an Object that has significant presence in the game world / has some functionality (like an entity).
     /// It can be possessed by any other actor, like a player or an AI.
+    /// Actor can have specials features to compose its behavior through components (see IComponentsContainer) and can dispatch events through its own event bus (see IEventBus).
     /// </summary>
-    public interface IActor : IHaveUUID, IActorComponent
+    public interface IActor : IHaveUUID
     {
         Transform Transform { get; }
         
