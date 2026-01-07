@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using GameFramework.Identification;
 
 namespace GameFramework.Inventory
@@ -11,13 +13,11 @@ namespace GameFramework.Inventory
     /// </summary>
     public interface IItemRegistry : IEnumerable<IItemActor>, IIDRegistry
     {
-        IItemActor this[string id] { get; }
+        IItemActor? this[string id] { get; }
 
         IEnumerable<IItemActor> AllItems { get; }
 
-        IItemActor GetItemOfId(string id);
-
-        bool TryGetItemOfId(string id, out IItemActor item);
+        IItemActor? GetItemOfId(string id);
 
         bool RegisterItem(string id, IItemActor item);
     }
