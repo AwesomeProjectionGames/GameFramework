@@ -15,20 +15,20 @@ namespace GameFramework.Bus
         /// </summary>
         /// <param name="handler">Handler to invoke when the event of type T is published. It should be a method (not a lambda) to be able to unsubscribe later.</param>
         /// <typeparam name="T">Type of the event to subscribe to. Must be a struct to avoid performance issues with boxing.</typeparam>
-        void Subscribe<T>(Action<T> handler) where T : struct;
+        void Subscribe<T>(Action<T> handler);
     
         /// <summary>
         /// Unsubscribe to prevent memory leaks.
         /// </summary>
         /// <param name="handler">Handler to remove from the subscription list.</param>
         /// <typeparam name="T">Type of the event to unsubscribe from. Must be a struct to avoid performance issues with boxing.</typeparam>
-        void Unsubscribe<T>(Action<T> handler) where T : struct;
+        void Unsubscribe<T>(Action<T> handler);
     
         /// <summary>
         /// Fire / raise the event of type T to all subscribers.
         /// </summary>
         /// <param name="eventItem">Event item to publish.</param>
         /// <typeparam name="T">Type of the event to publish. Must be a struct to avoid performance issues with boxing.</typeparam>
-        void Publish<T>(T eventItem) where T : struct;
+        void Publish<T>(T eventItem);
     }
 }
