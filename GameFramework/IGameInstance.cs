@@ -1,4 +1,6 @@
-﻿using GameFramework.Bus;
+﻿#nullable enable
+
+using GameFramework.Bus;
 using GameFramework.Dependencies;
 
 namespace GameFramework
@@ -19,5 +21,10 @@ namespace GameFramework
         /// Register only services that need to persist across levels / not stateful per level.
         /// </summary>
         public IComponentsContainer Services { get; }
+        
+        /// <summary>
+        /// The current game mode or null if no mode is active.
+        /// </summary>
+        public IGameMode? CurrentGameMode { get;  }
     }
 }
