@@ -57,6 +57,8 @@ namespace GameFramework
 
         /// <summary>
         /// Called when the actor is unpossessed.
+        /// Generally called by the controller when it unpossess this actor.
+        /// Look at UnpossessPawn of IController if you want to unpossess a pawn.
         /// </summary>
         void RemoveOwner();
     }
