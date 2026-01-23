@@ -25,6 +25,6 @@ namespace GameFramework
         /// <summary>
         /// The current game mode or null if no mode is active.
         /// </summary>
-        public IGameMode? CurrentGameMode { get;  }
+        public IGameMode? CurrentGameMode { get; set; }
     }
 }
