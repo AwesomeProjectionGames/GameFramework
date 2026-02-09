@@ -50,7 +50,7 @@ namespace GameFramework
                 return;
             }
 
-            if (ControlledActor != null)
+            if ((ControlledActor as Object) != null)
             {
                 UnpossessActor();
             }
