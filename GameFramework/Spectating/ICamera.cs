@@ -16,5 +16,10 @@ namespace GameFramework
         public float FieldOfView { get; set; }
         public float NearClipPlane { get; set; }
         public float FarClipPlane { get; set; }
+
+        /// <summary>
+        /// The viewport of the camera (0-1).
+        /// </summary>
+        public Rect Rect { get; set; }
     }
 }
