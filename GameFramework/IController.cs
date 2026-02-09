@@ -34,7 +34,7 @@ namespace GameFramework
         /// Get a spectate controller for managing spectating behavior (UIs, cameras, etc).
         /// Generally, this will be the SpectateController for every player controller (if split screen) or a full screen SpectateController.
         /// </summary>
-        ISpectateController? SpectateController { get; }
+        ISpectateController? SpectateController { get; set; }
 
         /// <summary>
         /// Possesses the specified actor, transferring control to this controller.
