@@ -1,4 +1,8 @@
-﻿namespace GameFramework
+﻿#nullable enable
+
+using UnityEngine;
+
+namespace GameFramework
 {
     /// <summary>
     /// Defines game rules, flow, and win conditions.
@@ -15,5 +19,7 @@
         public IController DefaultControllerPrefab { get; }
         public IGameState CurrentGameState { get; }
         public ISpawnPoint GetSpawnPoint(IPawn pawn);
+        public IActor? Spawn(IActor prefab, bool destroyWithScene = true);
+        public IActor? SpawnAtLocation(IActor prefab, Vector3 location, Quaternion rotation, bool destroyWithScene = true);
     }
 }
