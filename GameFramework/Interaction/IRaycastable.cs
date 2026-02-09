@@ -8,5 +8,6 @@ namespace GameFramework.Interaction
     public interface IRaycastable
     {
         RaycastHit? Raycast(LayerMask mask, float maxDistance);
+        bool Raycast(LayerMask mask, float maxDistance, out RaycastHit hit);
     }
 }
