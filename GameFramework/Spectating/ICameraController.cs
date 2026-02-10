@@ -41,9 +41,8 @@ namespace GameFramework
         void TransitionToCamera(ICamera cameraTarget, CameraTransitionSettings transitionSettings);
         
         /// <summary>
-        /// Set the viewport rect for the camera controlled by this controller.
+        /// The viewport rect of the camera. Values should be between 0 and 1, where (0,0) is the bottom-left corner of the screen and (1,1) is the top-right corner.
         /// </summary>
-        /// <param name="viewPort">The viewport rect to set for the camera. Values should be between 0 and 1, where (0,0) is the bottom-left corner of the screen and (1,1) is the top-right corner.</param>
-        void SetViewPort(Rect viewPort);
+        Rect ViewPort { get; set; }
     }
 }
