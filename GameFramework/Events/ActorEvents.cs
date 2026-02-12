@@ -10,15 +10,9 @@ namespace GameFramework.Events
     {
         public IActor Actor { get; }
 
-        /// <summary>
-        /// Quick check to see if the local client is the one controlling this actor.
-        /// </summary>
-        public bool IsLocalOwner { get; }
-
-        protected ActorEvent(IActor actor, bool isLocalOwner = true)
+        protected ActorEvent(IActor actor)
         {
             Actor = actor;
-            IsLocalOwner = isLocalOwner;
         }
     }
 
@@ -35,7 +29,7 @@ namespace GameFramework.Events
     /// </summary>
     public sealed class OnActorOwnedEvent : ActorEvent
     {
-        public OnActorOwnedEvent(IActor actor, bool isLocalOwner = true) : base(actor, isLocalOwner) { }
+        public OnActorOwnedEvent(IActor actor) : base(actor) { }
     }
 
     /// <summary>
@@ -43,6 +37,6 @@ namespace GameFramework.Events
     /// </summary>
     public sealed class OnActorUnownedEvent : ActorEvent
     {
-        public OnActorUnownedEvent(IActor actor, bool isLocalOwner = true) : base(actor, isLocalOwner) { }
+        public OnActorUnownedEvent(IActor actor) : base(actor) { }
     }
 }
