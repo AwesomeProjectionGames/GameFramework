@@ -28,6 +28,12 @@ namespace InteractionSystem
         /// A optionnal text (can be null) providing a more detailed description of the interaction (for example, the object's name, or a more detailed description of the action).
         /// </summary>
         public string? InteractionTextDescription { get; }
+
+        
+        /// <summary>
+        /// True if at least one interactor is currently hovering over this interactable object.
+        /// </summary>
+        public bool IsAnyHovering { get; }
         
         /// <summary>
         /// Method to handle interaction with the interactor.
