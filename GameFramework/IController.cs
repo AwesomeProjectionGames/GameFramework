@@ -45,22 +45,9 @@ namespace GameFramework
         void PossessActor(IActor actor);
 
         /// <summary>
-        /// Called after a pawn has been successfully possessed.
-        /// Override to implement custom logic during possession.
-        /// </summary>
-        /// <param name="actor">The actor that has been possessed.</param>
-        void OnPossess(IActor actor);
-
-        /// <summary>
         /// Unpossesses the currently controlled actor.
         /// </summary>
         /// <exception cref="System.InvalidOperationException">Thrown if the controller is not possessing any actor.</exception>
         void UnpossessActor();
-
-        /// <summary>
-        /// Called after a actor has been unpossessed.
-        /// Override to implement custom logic during unpossession.
-        /// </summary>
-        void OnUnpossess();
     }
 }
