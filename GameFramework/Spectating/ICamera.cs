@@ -12,7 +12,8 @@ namespace GameFramework
         /// We should expect that when we enable a camera, all associated components (like audio listener) will be enabled too (for physical) or call 
         /// </summary>
         public bool IsActive { get; set; }
-        public Transform Transform { get; }
+        public Vector3 Position { get; set; }
+        public Quaternion Rotation { get; set; }
         public float FieldOfView { get; set; }
         public float NearClipPlane { get; set; }
         public float FarClipPlane { get; set; }
