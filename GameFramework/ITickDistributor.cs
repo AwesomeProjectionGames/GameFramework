@@ -20,5 +20,10 @@ namespace GameFramework
         /// Unregisters a callback. Fails silently if the callback is not registered.
         /// </summary>
         void Unsubscribe(Action callback, TickType tickType);
+
+        /// <summary>
+        /// Determines how many callbacks are executed per frame for each tick type. Higher values reduce latency but increase CPU load.
+        /// </summary>
+        public int UpdatesPerFrame { get; set; }
     }
 }
