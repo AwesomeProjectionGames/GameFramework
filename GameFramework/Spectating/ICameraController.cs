@@ -22,7 +22,7 @@ namespace GameFramework
     /// <summary>
     /// Interface for a camera controller that can transition between different cameras.
     /// </summary>
-    public interface ICameraController
+    public interface ICameraController : IEntity
     {
         /// <summary>
         /// The currently active camera (or null if no camera is active).
