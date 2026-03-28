@@ -22,5 +22,7 @@ namespace GameFramework
         /// The viewport of the camera (0-1).
         /// </summary>
         public Rect Rect { get; set; }
+
+        public Vector3 WorldToScreenPoint(Vector3 position);
     }
 }
