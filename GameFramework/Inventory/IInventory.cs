@@ -10,7 +10,7 @@ namespace GameFramework.Inventory
     /// <summary>
     /// Define common methods for all inventories
     /// </summary>
-    public interface IInventory : IActorComponent
+    public interface IInventory : IEntityComponent
     {
         /// <summary>
         /// All items of this inventory. 2D inventories are just a rendering feature over this list.

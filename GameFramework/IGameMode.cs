@@ -13,7 +13,7 @@ namespace GameFramework
     /// - Initializes GameState and PlayerController.
     /// - Manages transitions between match states.
     /// </summary>
-    public interface IGameMode
+    public interface IGameMode : IEntity
     {
         public IPawn DefaultPawnPrefab { get; }
         public IController DefaultControllerPrefab { get; }

@@ -4,7 +4,7 @@ namespace GameFramework.Interaction {
     /// <summary>
     /// Interface for interactable objects in the interaction system.
     /// </summary>
-    public interface IInteractor : IActorComponent
+    public interface IInteractor : IEntityComponent
     {
         public void Interact();
     }
