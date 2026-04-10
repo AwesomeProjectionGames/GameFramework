@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using System.Collections.Generic;
 using GameFramework.Dependencies;
 using UnityEngine;
 
@@ -21,5 +22,15 @@ namespace GameFramework.Inventory
         string Identifier { get; }
         string? LocalizedName { get; }
         Texture2D? Icon { get; }
+        
+        /// <summary>
+        /// A dictionary of stats that can be used to store any kind of data related to the item, such as durability, weight, value, etc.
+        /// </summary>
+        Dictionary<string, object> Stats { get; }
+        
+        /// <summary>
+        /// A prefab that we chould Instantiate to preview the item. It should not have any gameplay related component or network related component.
+        /// </summary>
+        GameObject? PreviewPrefab { get; }
     }
 }
