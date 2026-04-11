@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace GameFramework.ObjectManipulation
+namespace GameFramework
 {
     public interface IDroppable
     {
-        public void Drop(IPawn instigator, Vector3 dropWorldPosition, Quaternion dropWorldRotation, Vector3 dropVelocity = default);
+        public void Drop(IEntity instigator, Vector3 dropWorldPosition, Quaternion dropWorldRotation, Vector3 dropVelocity = default);
     }
 }

@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using System;
 using System.Collections.Generic;
 using GameFramework.Dependencies;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace GameFramework.Inventory
     /// Capable to be stored in all kind of IInventory.
     /// Items have capabilities / Feature. They are now the same as a regular ActorComponent.
     /// </summary>
-    public interface IItemEntityComponent : IEntityComponent
+    public interface IItemEntityComponent : IEntityComponent, IObserver<Dictionary<string, object>>, IObservable<Dictionary<string, object>>
     {
         /// <summary>
         /// The base item identifier. Use to respawn the same item with default features configuration.
