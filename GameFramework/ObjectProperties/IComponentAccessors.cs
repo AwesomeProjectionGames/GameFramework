@@ -5,11 +5,6 @@ using UnityEngine;
 
 namespace GameFramework
 {
-    public interface IPhysics
-    {
-        Rigidbody Rigidbody { get; }
-    }
-    
     public interface ICollider
     {
         Collider Collider { get; }
