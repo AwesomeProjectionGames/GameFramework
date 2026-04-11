@@ -10,9 +10,10 @@ namespace GameFramework.Inventory
     public interface IPicker : IEntityComponent, IDroppable
     {
         /// <summary>
-        /// Picks up the target Rigidbody. Drops the current one if already holding something.
+        /// Picks up the target item. Drops the current one if already holding something.
         /// </summary>
-        void Pickup(IItemEntityComponent targetRb);
+        /// <param name="targetItem">The target item to pick up.</param>
+        void Pickup(IItemEntityComponent targetItem);
 
         /// <summary>
         /// The <see cref="IItemEntityComponent"/> of the currently held object, or null if nothing is held.
