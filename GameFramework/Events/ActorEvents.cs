@@ -6,11 +6,11 @@ namespace GameFramework.Events
     /// Events on the local actor bus should inherit from this class.
     /// Should be used for high-frequency or volatile intra-entity signals.
     /// </summary>
-    public abstract class ActorEvent 
+    public abstract class ActorEvent : EntityEvent
     {
         public IActor Actor { get; }
 
-        protected ActorEvent(IActor actor)
+        protected ActorEvent(IActor actor) : base(actor)
         {
             Actor = actor;
         }
