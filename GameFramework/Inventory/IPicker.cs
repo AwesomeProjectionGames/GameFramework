@@ -1,8 +1,6 @@
 ﻿#nullable enable
 
 using GameFramework.Dependencies;
-using GameFramework.ObjectManipulation;
-using UnityEngine;
 
 namespace GameFramework.Inventory
 {
