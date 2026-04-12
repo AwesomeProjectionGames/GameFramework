@@ -19,7 +19,7 @@ namespace GameFramework
         public IController DefaultControllerPrefab { get; }
         public IGameState CurrentGameState { get; }
         public ISpawnPoint GetSpawnPoint(IPawn pawn);
-        public IActor? Spawn(IActor prefab, bool destroyWithScene = true);
-        public IActor? SpawnAtLocation(IActor prefab, Vector3 location, Quaternion rotation, bool destroyWithScene = true);
+        public IEntity? Spawn(IEntity prefab, bool destroyWithScene = true);
+        public IEntity? SpawnAtLocation(IEntity prefab, Vector3 location, Quaternion rotation, bool destroyWithScene = true);
     }
 }
