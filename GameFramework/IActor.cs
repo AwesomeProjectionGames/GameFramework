@@ -11,6 +11,14 @@ namespace GameFramework
     public interface IActor : IEntity, IHaveUUID
     {
         /// <summary>
+        /// The path to load this actor's prefab from a Resources folder (without extension),
+        /// allowing it to be instantiated at runtime via Resources.Load.
+        /// Each instance derived from the same prefab shares the same ResourcePath.
+        /// Don't confuse with UUID, which is unique for each instance.
+        /// </summary>
+        string ResourcePath { get; }
+
+        /// <summary>
         /// Gets the controller currently possessing this actor.
         /// </summary>
         public IController? Controller => Owner?.Controller;
