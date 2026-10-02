@@ -19,6 +19,7 @@ namespace GameFramework.Inventory
         /// Each instance of one prefab will have the same identifier.
         /// Don't confuse with UUID, which is unique for each instance.
         /// This can, for example, be the ResourcePath of the item prefab.
+        /// We should be able to do Resources.Load<>(Identifier)
         /// </summary>
         string Identifier { get; }
         string? LocalizedName { get; }
