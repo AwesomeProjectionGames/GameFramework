@@ -1,24 +1,21 @@
-﻿using GameFramework.Identification;
+#nullable enable
 
 namespace GameFramework.Dependencies
 {
     /// <summary>
-    /// An interface representing an object that can be serialized and deserialized.
-    /// We can expect the format to be a JSON string.
-    /// This is useful for saving and loading game state and networking.
-    /// Everything that change in for example an actor should be contained in the serialized state.
+    /// Contract for objects that can serialize and deserialize their state as binary bytes.
+    /// Used for persistence, savegames, and full state network snapshots.
     /// </summary>
     public interface ISerializedObject
     {
         /// <summary>
-        /// Compute Serialized state (preferably in JSON format for consistency) of the feature.
+        /// Computes the serialized state as raw bytes.
         /// </summary>
-        public string Serialize();
-        
+        byte[] Serialize();
+
         /// <summary>
-        /// Apply the state to the feature / object.
+        /// Applies serialized state from raw bytes.
         /// </summary>
-        /// <param name="serializedData">The serialized state to apply (probably in JSON).</param>
-        public void Deserialize(string serializedData);
+        void Deserialize(byte[] data);
     }
 }
